@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Link,Routes, Route} from 'react-router-dom'
+
+
+const Home = () => <h1>Strona startowa</h1>
+const News = () => <h1>Aktualności</h1>
+const Contact = () => <h1>Kontakt do nas</h1>
 
 class App extends Component {
   render(){
     return (
-      <BrowserRouter>
+      <Router>
         <div >
           <header>
             <nav>
@@ -20,10 +25,14 @@ class App extends Component {
             </nav>
           </header>
           <section>
-            Strona - Witaj
+            <Routes>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/news" element={<News/>}/>
+              <Route path="/contact" element={<Contact/>}/>
+            </Routes>
           </section>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
